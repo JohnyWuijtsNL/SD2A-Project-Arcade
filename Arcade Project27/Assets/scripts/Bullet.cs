@@ -12,7 +12,8 @@ public class Bullet : MonoBehaviour
         {
             oldPos = transform.position;
         }
-        lookDirection = -Vector2.Angle(Vector2.up, oldPos);
+        lookDirection = -Vector2.Angle(transform.position, oldPos);
+        Debug.Log(Vector2.Angle(Vector3.zero, transform.position));
         transform.eulerAngles = new Vector3(0, 0, lookDirection);
 
         oldPos = transform.position;
