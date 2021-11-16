@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class EnemyDestroy : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
 
     void OnCollisionEnter2D(Collision2D colission)
     {
         if (colission.gameObject.name == "EnemyHit")
         {
+
             Destroy(colission.gameObject);
         }
     }

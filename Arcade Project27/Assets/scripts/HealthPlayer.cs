@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class HealthPlayer : MonoBehaviour
 {
+    [SerializeField]
+    AudioScript ac;
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -17,18 +19,14 @@ public class HealthPlayer : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    public void TakeDamage()
     {
-        if (other.gameObject.tag == "EnemyHit")
+        TakeDamage(5);
+        //Debug.Log("Hit");
+        ac.playSound(1);
+        if (currentHealth <= 0)
         {
-            TakeDamage(5);
-            Debug.Log("Hit");
-
-        }
-        else if (currentHealth <= 0)
-        {
-            Debug.Log("Player Dood");
-            Destroy(gameObject);
+            //Debug.Log("Player Dood");
             SceneManager.LoadScene("Deathscreen");
 
         }

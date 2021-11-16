@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
     public float speed = 3f;
 
     // [SerializeField] private float attackDamage = 10f;
@@ -23,13 +22,15 @@ public class Enemy : MonoBehaviour
     }
 
     
-   /* private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<HealthPlayer>().Updatehealth(-attackDamage);
+            Destroy(gameObject);
+            other.gameObject.GetComponent<HealthPlayer>().TakeDamage();
         }
-    } */
+    } 
+   
 }
 
 

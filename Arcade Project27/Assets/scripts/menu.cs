@@ -29,5 +29,12 @@ public class menu : MonoBehaviour
     }
 
 
+    public void Information()
+    {
+        SceneManager.LoadScene("Information");
+        Debug.Log("LoadSceneB");
+
+    }
+
 }
 

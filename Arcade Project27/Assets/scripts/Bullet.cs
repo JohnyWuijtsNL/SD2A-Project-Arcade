@@ -10,6 +10,12 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     float rotateSpeed;
     public int direction;
+    AudioScript ac;
+
+    private void Start()
+    {
+        ac = GameObject.Find("Main Camera").GetComponent<AudioScript>();  
+    }
     private void Update()
     {
         /*if (oldPos == null)
@@ -30,6 +36,7 @@ public class Bullet : MonoBehaviour
             Score.scoreAmount += 100;
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
+            ac.playSound(0);
         }
 
         if (collision.gameObject.tag == "Border")

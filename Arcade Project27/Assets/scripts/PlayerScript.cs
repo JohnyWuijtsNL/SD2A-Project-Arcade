@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    [SerializeField]
+    AudioScript ac;
     public Animator animator;
 
     public float moveSpeed = 5f;
@@ -64,6 +66,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (bulletTimer <= 0)
             {
+                ac.playSound(2);
                 GameObject bullet = Instantiate(bulletPrefab, shootPosition.transform.position, Quaternion.identity);
                 if (Input.GetAxisRaw("HorizontalShoot") > 0)
                 {
